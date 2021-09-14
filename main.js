@@ -1,16 +1,14 @@
-// ARRAY DIFF
-// Your goal in this kata is to implement a difference function, 
-// which subtracts one list from another and returns the result.
-// It should remove all values from list a, which are present in list b keeping their order.
-function arrayDiff(a, b) {
-  if ( a.length < 1 || b.length < 1 ) return a 
-  else {
-     let tmp = []
-     a.forEach( (arr, i) => {
-        if ( b.indexOf(arr) < 0 ) tmp.push(arr)
-     })
-     return tmp
-  }
+//  Find the parity outlier
+// IMnstructions :
+// You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N.
+// Write a method that takes the array as an argument and returns this "outlier" N.
+
+function findOutlier(integers){
+  const even = integers.filter( item => item % 2 == 0 || item % 0 == 0)
+  const odd = integers.filter( item => item % 2 == 1)
+  if ( even.length < odd.length ) return parseInt(even + '')
+  else return parseInt(odd + '')
 }
 
-console.log( arrayDiff([1,2,3], [1,2]) )
+const example = [0,1,2]
+console.log(findOutlier(example))
