@@ -1,14 +1,12 @@
-//  Find the parity outlier
-// IMnstructions :
-// You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N.
-// Write a method that takes the array as an argument and returns this "outlier" N.
+// FRIEND OR FOE ?
+// INSTRUCTIONS :
+// Make a program that filters a list of strings and returns a list with only your friends name in it.
+// If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+// Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
 
-function findOutlier(integers){
-  const even = integers.filter( item => item % 2 == 0 || item % 0 == 0)
-  const odd = integers.filter( item => item % 2 == 1)
-  if ( even.length < odd.length ) return parseInt(even + '')
-  else return parseInt(odd + '')
+function friend(friends){
+  return friends.filter( friend => friend.length === 4)
 }
 
-const example = [0,1,2]
-console.log(findOutlier(example))
+const example = ['ryan', 'karl', 'max']
+console.log(friend(example))
