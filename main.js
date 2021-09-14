@@ -1,25 +1,16 @@
-// EXES AND OHS
-// INSTRUCTIONS :
-// Check to see if a string has the same amount of 'x's and 'o's. 
-// The method must return a boolean and be case insensitive. 
-// The string can contain any char.
+//  FIND UNIQUE ARRAY
 
-//INPUT OUTPUT
-// XO("ooxx") => true
-// XO("xooxx") => false
-// XO("ooxXm") => true
-// XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
-// XO("zzoo") => false
+//INSTRUCTIONS : 
+//There is an array with some numbers. All numbers are equal except for one. Try to find it!
+// findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+// findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
 
-function XO(str) {
-   str = str.toLowerCase().split('')
-   const x = str.filter(item => item === 'x')
-   const o = str.filter(item => item === 'o')
-   
-   if ( x.length === o.length ) return true
-   else if ( x.length < 1 && o.length < 1 ) return true
-   else return false
+function findUniq(arr) {
+  const unique = arr.filter( (x, i, a) => a.indexOf(x) == i)
+   for ( let x = 0; x < unique.length; x++ ) {
+      if ( arr.filter( item => item == unique[x]).length == 1 ) return (unique[x])
+   }
 }
 
-const example = 'Ooom'
-console.log(XO(example))
+const example = [3, 10, 3, 3, 3,3]
+console.log( findUniq(example) )
