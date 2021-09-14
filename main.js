@@ -1,27 +1,19 @@
-// Equal sides of an array 
-// INSTRUCTIONS :
-// You are going to be given an array of integers. Your job is to take that array and find an index N 
-// where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. 
-// If there is no index that would make this happen, return -1.
+// Jaden Casing strings
+// INSTRUCTIOND :
+// Your task is to convert strings to how they
+// would be written by Jaden Smith. The strings are actual quotes from Jaden Smith,
+// but they are not capitalized in the same way he originally typed them.
 
-function findEvenIndex(numbers){
-   const size = numbers.length
-   let left
-   let right
-   for ( let x = 0; x < size; x++ ) {
-      let tmp = numbers[x]
-      if ( x == 0 ) {
-         left = numbers.slice(x + 1).reduce( (a, b) => a + b)
-         if ( tmp === left ) return x
-      } else {
-         left = numbers.slice(0, x).reduce( (a, b) => a + b)
-         if ( x < size - 1 ) right = numbers.slice(x + 1).reduce( (a, b) => a + b)
-         if ( left == right ) return x
-      }   
-   }
-   return -1
+String.prototype.toJadenCase = function () {
+  let str = this.toString().split(' ')
+  const jadenCase = []
+  str.forEach( item => {
+     let tmp = item.split('')
+     tmp[0] = tmp[0].toUpperCase()
+     jadenCase.push(tmp.join(''))
+  })
+  return jadenCase.join(' ')
 }
 
-const example = [20,10,30,10,10,15,35]
-console.log(findEvenIndex(example))
-//console.log(example.slice(1))
+const str = "How can mirrors be real if our eyes aren't real"
+console.log(str.toJadenCase())
