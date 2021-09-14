@@ -1,18 +1,21 @@
-//  Counting duplicates
+//  Get the midddle character
 // INSTRUCTION :
-// Write a function that will return the count of distinct case-insensitive 
-// alphabetic characters and numeric digits that occur more than once in the input string. 
-// The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits
+// You are going to be given a word. Your job is to return the middle character of the word. 
+// If the word's length is odd, return the middle character. 
+// If the word's length is even, return the middle 2 characters.
 
-function duplicateCount(text){
-  const uniques = text.toLowerCase().split('').filter( (x, i, a) => a.indexOf(x) === i) 
-  let count = 0
-  uniques.forEach( unique => {
-     if ( text.toLowerCase().split('').filter( item => item === unique ).length > 1) count++
-  })
-  return count
+function getMiddle(text) {
+  text = text.split('')
+  let size = text.length
+  if ( size % 2 == 0 ) {
+     size = size / 2
+     return `${text[size - 1]}${text[size]}`
+  } else {
+     size--
+     size = size / 2
+     return text[size]
+  }
 }
 
-const str = "aabBcde"
-console.log(duplicateCount(str))
-//console.log(str.indexOf('a'))
+const str = "teste"
+console.log(getMiddle(str))
